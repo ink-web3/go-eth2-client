@@ -40,8 +40,8 @@ type executionPayloadYAML struct {
 	BlockHash     string                `yaml:"block_hash"`
 	Transactions  []string              `yaml:"transactions"`
 	Withdrawals   []*capella.Withdrawal `yaml:"withdrawals"`
-	DataGasUsed   uint64                `yaml:"data_gas_used"`
-	ExcessDataGas uint64                `yaml:"excess_data_gas"`
+	//DataGasUsed   uint64                `yaml:"data_gas_used"`
+	ExcessDataGas uint64 `yaml:"excess_data_gas"`
 }
 
 // MarshalYAML implements yaml.Marshaler.
