@@ -202,10 +202,10 @@ func (e *ExecutionPayloadHeader) UnmarshalJSON(input []byte) error {
 		return errors.Wrap(err, "withdrawals_root")
 	}
 
-	tmpUint, err = strconv.ParseUint(string(bytes.Trim(raw["data_gas_used"], `"`)), 10, 64)
-	if err != nil {
-		return errors.Wrap(err, "data_gas_used")
-	}
+	//tmpUint, err = strconv.ParseUint(string(bytes.Trim(raw["data_gas_used"], `"`)), 10, 64)
+	//if err != nil {
+	//	return errors.Wrap(err, "data_gas_used")
+	//}
 	//e.DataGasUsed = tmpUint
 
 	tmpUint, err = strconv.ParseUint(string(bytes.Trim(raw["excess_data_gas"], `"`)), 10, 64)
