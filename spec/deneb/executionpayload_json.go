@@ -45,8 +45,8 @@ type executionPayloadJSON struct {
 	BlockHash     phase0.Hash32              `json:"block_hash"`
 	Transactions  []string                   `json:"transactions"`
 	Withdrawals   []*capella.Withdrawal      `json:"withdrawals"`
-	DataGasUsed   string                     `json:"data_gas_used"`
-	ExcessDataGas string                     `json:"excess_data_gas"`
+	//DataGasUsed   string                     `json:"data_gas_used"`
+	ExcessDataGas string `json:"excess_data_gas"`
 }
 
 // MarshalJSON implements json.Marshaler.
