@@ -77,7 +77,7 @@ func (e *ExecutionPayload) MarshalJSON() ([]byte, error) {
 		BlockHash:     e.BlockHash,
 		Transactions:  transactions,
 		Withdrawals:   e.Withdrawals,
-		DataGasUsed:   fmt.Sprintf("%d", e.DataGasUsed),
+		//DataGasUsed:   fmt.Sprintf("%d", e.DataGasUsed),
 		ExcessDataGas: fmt.Sprintf("%d", e.ExcessDataGas),
 	})
 }
@@ -222,11 +222,11 @@ func (e *ExecutionPayload) UnmarshalJSON(input []byte) error {
 		return errors.Wrap(err, "withdrawals")
 	}
 
-	tmpUint, err = strconv.ParseUint(string(bytes.Trim(raw["data_gas_used"], `"`)), 10, 64)
-	if err != nil {
-		return errors.Wrap(err, "data_gas_used")
-	}
-	e.DataGasUsed = tmpUint
+	//tmpUint, err = strconv.ParseUint(string(bytes.Trim(raw["data_gas_used"], `"`)), 10, 64)
+	//if err != nil {
+	//	return errors.Wrap(err, "data_gas_used")
+	//}
+	//e.DataGasUsed = tmpUint
 
 	tmpUint, err = strconv.ParseUint(string(bytes.Trim(raw["excess_data_gas"], `"`)), 10, 64)
 	if err != nil {

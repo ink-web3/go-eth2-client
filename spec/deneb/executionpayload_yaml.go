@@ -72,7 +72,7 @@ func (e *ExecutionPayload) MarshalYAML() ([]byte, error) {
 		BlockHash:     fmt.Sprintf("%#x", e.BlockHash),
 		Transactions:  transactions,
 		Withdrawals:   e.Withdrawals,
-		DataGasUsed:   e.DataGasUsed,
+		//DataGasUsed:   e.DataGasUsed,
 		ExcessDataGas: e.ExcessDataGas,
 	}, yaml.Flow(true))
 	if err != nil {

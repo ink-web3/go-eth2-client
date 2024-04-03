@@ -75,7 +75,7 @@ func (e *ExecutionPayload) MarshalSSZTo(buf []byte) (dst []byte, err error) {
 	offset += len(e.Withdrawals) * 44
 
 	// Field (15) 'DataGasUsed'
-	dst = ssz.MarshalUint64(dst, e.DataGasUsed)
+	//dst = ssz.MarshalUint64(dst, e.DataGasUsed)
 
 	// Field (16) 'ExcessDataGas'
 	dst = ssz.MarshalUint64(dst, e.ExcessDataGas)
@@ -193,7 +193,7 @@ func (e *ExecutionPayload) UnmarshalSSZ(buf []byte) error {
 	}
 
 	// Field (15) 'DataGasUsed'
-	e.DataGasUsed = ssz.UnmarshallUint64(buf[512:520])
+	//e.DataGasUsed = ssz.UnmarshallUint64(buf[512:520])
 
 	// Field (16) 'ExcessDataGas'
 	e.ExcessDataGas = ssz.UnmarshallUint64(buf[520:528])
@@ -374,7 +374,7 @@ func (e *ExecutionPayload) HashTreeRootWith(hh ssz.HashWalker) (err error) {
 	}
 
 	// Field (15) 'DataGasUsed'
-	hh.PutUint64(e.DataGasUsed)
+	//hh.PutUint64(e.DataGasUsed)
 
 	// Field (16) 'ExcessDataGas'
 	hh.PutUint64(e.ExcessDataGas)
