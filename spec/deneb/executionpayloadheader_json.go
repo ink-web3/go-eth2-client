@@ -45,7 +45,7 @@ type executionPayloadHeaderJSON struct {
 	TransactionsRoot phase0.Root                `json:"transactions_root"`
 	WithdrawalsRoot  phase0.Root                `json:"withdrawals_root"`
 	//DataGasUsed      string                     `json:"data_gas_used"`
-	ExcessDataGas string `json:"excess_data_gas"`
+	ExcessBlobGas string `json:"excess_blob_gas"`
 }
 
 // MarshalJSON implements json.Marshaler.
@@ -72,7 +72,7 @@ func (e *ExecutionPayloadHeader) MarshalJSON() ([]byte, error) {
 		TransactionsRoot: e.TransactionsRoot,
 		WithdrawalsRoot:  e.WithdrawalsRoot,
 		//DataGasUsed:      fmt.Sprintf("%d", e.DataGasUsed),
-		ExcessDataGas: fmt.Sprintf("%d", e.ExcessDataGas),
+		ExcessBlobGas: fmt.Sprintf("%d", e.ExcessBlobGas),
 	})
 }
 
@@ -208,11 +208,11 @@ func (e *ExecutionPayloadHeader) UnmarshalJSON(input []byte) error {
 	//}
 	//e.DataGasUsed = tmpUint
 
-	tmpUint, err = strconv.ParseUint(string(bytes.Trim(raw["excess_data_gas"], `"`)), 10, 64)
+	tmpUint, err = strconv.ParseUint(string(bytes.Trim(raw["excess_blob_gas"], `"`)), 10, 64)
 	if err != nil {
-		return errors.Wrap(err, "excess_data_gas")
+		return errors.Wrap(err, "excess_blob_gas")
 	}
-	e.ExcessDataGas = tmpUint
+	e.ExcessBlobGas = tmpUint
 
 	return nil
 }
